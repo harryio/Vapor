@@ -1,13 +1,18 @@
-package io.github.sainiharry.vapor
+package io.github.sainiharry.vapor.gamelist
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import io.github.sainiharry.vapor.R
 import io.github.sainiharry.vapor.common.GameCategory
 
-class GamesCategoriesAdapter(private val gamesCategories: List<GameCategory>) :
+/**
+ * A [RecyclerView.Adapter] that handles displaying game categories in a list
+ * @param gamesCategories a list of [GameCategory] that should be displayed in a list
+ */
+internal class GamesCategoriesAdapter(private val gamesCategories: List<GameCategory>) :
     RecyclerView.Adapter<GamesCategoriesViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
@@ -20,7 +25,11 @@ class GamesCategoriesAdapter(private val gamesCategories: List<GameCategory>) :
     override fun getItemCount(): Int = gamesCategories.size
 }
 
-class GamesCategoriesViewHolder(viewGroup: ViewGroup) : RecyclerView.ViewHolder(
+/**
+ * A [RecyclerView.ViewHolder] that sets a single game category data to a single cell in the
+ * game category list
+ */
+internal class GamesCategoriesViewHolder(viewGroup: ViewGroup) : RecyclerView.ViewHolder(
     LayoutInflater.from(viewGroup.context).inflate(R.layout.item_game_category, viewGroup, false)
 ) {
 

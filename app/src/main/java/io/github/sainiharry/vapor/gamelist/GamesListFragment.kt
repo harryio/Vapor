@@ -1,4 +1,4 @@
-package io.github.sainiharry.vapor
+package io.github.sainiharry.vapor.gamelist
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,11 +9,15 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
+import io.github.sainiharry.vapor.R
 import io.github.sainiharry.vapor.utils.EventObserver
 import kotlinx.android.synthetic.main.fragment_games_list.*
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.android.get
 
+/**
+ * A fragment that displays a list of game categories and games
+ */
 class GamesListFragment : Fragment() {
 
     private val model by viewModels<GamesViewModel> {
