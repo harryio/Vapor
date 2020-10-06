@@ -8,6 +8,6 @@ class GameDataSourceTest {
     @Test
     fun testGetGamesCategoriesJson() {
         val gameDataSource = GameDataSourceImpl()
-        assertEquals(GAME_JSON_DATA, gameDataSource.getGamesCategoriesJson())
+        assertEquals(GAME_JSON_DATA, gameDataSource.getGamesCategories())
     }
 }

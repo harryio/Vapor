@@ -29,7 +29,7 @@ internal class GamesRepositoryImpl(
             val gameCategoryAdapter: JsonAdapter<List<GameCategoryModel>> =
                 moshi.adapter(gameCategoriesType)
 
-            gameCategoryAdapter.fromJson(gameDataSource.getGamesCategoriesJson())
+            gameCategoryAdapter.fromJson(gameDataSource.getGamesCategories())
                 ?.map { it.toGameCategory() } ?: emptyList()
         }
 }

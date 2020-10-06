@@ -28,20 +28,20 @@ class GameRepositoryTest {
 
     @Test
     fun testNoCategories() = runBlockingTest {
-        `when`(dataSource.getGamesCategoriesJson()).thenReturn(EMPTY_GAMES_CATEGORIES_DATA)
+        `when`(dataSource.getGamesCategories()).thenReturn(EMPTY_GAMES_CATEGORIES_DATA)
         assertTrue(gamesRepository.getGamesCategories().isEmpty())
     }
 
     @Test
     fun testNoGames() = runBlockingTest {
-        `when`(dataSource.getGamesCategoriesJson()).thenReturn(GAMES_CATEGORIES_DATA_WITH_NO_GAMES)
+        `when`(dataSource.getGamesCategories()).thenReturn(GAMES_CATEGORIES_DATA_WITH_NO_GAMES)
         val gamesCategories = gamesRepository.getGamesCategories()
         assertTrue(gamesCategories.all { it.games.isEmpty() })
     }
 
     @Test
     fun testCategoriesWithGamesAndNoGames() = runBlockingTest {
-        `when`(dataSource.getGamesCategoriesJson()).thenReturn(
+        `when`(dataSource.getGamesCategories()).thenReturn(
             GAME_CATEGORIES_DATA_WITH_EMPTY_AND_NON_EMPTY_GAMES
         )
         val gamesCategories = gamesRepository.getGamesCategories()
@@ -54,7 +54,7 @@ class GameRepositoryTest {
 
     @Test
     fun testCategoriesWithNonEmptyGames() = runBlockingTest {
-        `when`(dataSource.getGamesCategoriesJson()).thenReturn(
+        `when`(dataSource.getGamesCategories()).thenReturn(
             GAME_CATEGORIES_DATA_WITH_NON_EMPTY_DATA
         )
         val gamesCategories = gamesRepository.getGamesCategories()

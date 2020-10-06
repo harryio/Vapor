@@ -2,10 +2,10 @@ package io.github.sainiharry.vapor.repository.games
 
 internal interface GameDataSource {
 
-    fun getGamesCategoriesJson(): String
+    fun getGamesCategories(): String
 }
 
 internal class GameDataSourceImpl : GameDataSource {
 
-    override fun getGamesCategoriesJson(): String = GAME_JSON_DATA
+    override fun getGamesCategories(): String = GAME_JSON_DATA
 }
