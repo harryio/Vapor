@@ -23,12 +23,18 @@ class GamesViewModel(
     val errorLiveData: LiveData<Event<Any>>
         get() = _errorLiveData
 
+    private val _loading = MutableLiveData<Boolean>()
+    val loading: LiveData<Boolean>
+        get() = _loading
+
     internal fun fetchResults() = viewModelScope.launch(coroutineDispatcher) {
+        _loading.value = true
         try {
             _gamesCategories.value = repository.getGamesCategories()
         } catch (e: Exception) {
             e.printStackTrace()
             _errorLiveData.value = Event(Any())
         }
+        _loading.value = false
     }
 }

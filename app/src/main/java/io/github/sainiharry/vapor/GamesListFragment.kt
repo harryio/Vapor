@@ -41,6 +41,10 @@ class GamesListFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        refresh_layout.setOnRefreshListener {
+            model.fetchResults()
+        }
+
         category_recycler_view.setHasFixedSize(true)
         model.gamesCategories.observe(viewLifecycleOwner) {
             category_recycler_view.adapter = GamesCategoriesAdapter(it)
@@ -57,5 +61,9 @@ class GamesListFragment : Fragment() {
 
             snackbar.show()
         })
+
+        model.loading.observe(viewLifecycleOwner) {
+            refresh_layout.isRefreshing = it
+        }
     }
 }
