@@ -6,6 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import io.github.sainiharry.vapor.common.GameCategory
 import io.github.sainiharry.vapor.repository.games.GamesRepository
+import io.github.sainiharry.vapor.utils.Event
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
 
@@ -18,9 +19,16 @@ class GamesViewModel(
     val gamesCategories: LiveData<List<GameCategory>>
         get() = _gamesCategories
 
-    init {
-        viewModelScope.launch(coroutineDispatcher) {
+    private val _errorLiveData = MutableLiveData<Event<Any>>()
+    val errorLiveData: LiveData<Event<Any>>
+        get() = _errorLiveData
+
+    internal fun fetchResults() = viewModelScope.launch(coroutineDispatcher) {
+        try {
             _gamesCategories.value = repository.getGamesCategories()
+        } catch (e: Exception) {
+            e.printStackTrace()
+            _errorLiveData.value = Event(Any())
         }
     }
 }
