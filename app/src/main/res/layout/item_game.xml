@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="@dimen/game_item_width"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/size_m">
 
     <ImageView
         android:id="@+id/game_poster"
@@ -16,12 +17,14 @@
 
     <TextView
         android:id="@+id/game_title"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/size_s"
         android:ellipsize="end"
+        android:gravity="center"
         android:maxLines="1"
         android:textAppearance="?textAppearanceCaption"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/game_poster"
         tools:text="Dice with Ellen" />

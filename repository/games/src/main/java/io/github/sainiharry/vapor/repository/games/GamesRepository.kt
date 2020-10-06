@@ -5,7 +5,15 @@ import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
 import io.github.sainiharry.vapor.common.GameCategory
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
+import org.koin.dsl.module
+
+val gamesRepositoryModule = module {
+    single<GamesRepository> {
+        GamesRepositoryImpl(GameDataSourceImpl(), Dispatchers.IO)
+    }
+}
 
 interface GamesRepository {
 

@@ -6,7 +6,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
 import io.github.sainiharry.vapor.common.Game
+
 
 class GamesAdapter(private val games: List<Game>) :
     RecyclerView.Adapter<GamesViewHolder>() {
@@ -30,6 +32,7 @@ class GamesViewHolder(viewGroup: ViewGroup) : RecyclerView.ViewHolder(
     fun bind(game: Game) {
         Glide.with(itemView.context)
             .load(game.img)
+            .transition(withCrossFade())
             .into(posterImageView)
 
         titleTextView.text = game.title

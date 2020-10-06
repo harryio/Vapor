@@ -41,6 +41,8 @@ dependencies {
     implementation libraries.kotlinStdLib
     implementation networkLibraries.moshi
 
+    implementation diLibraries.koin
+
     implementation coroutines.core
 
     kapt compilers.moshi

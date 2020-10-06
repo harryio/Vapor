@@ -5,9 +5,23 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.ViewModel
+import androidx.lifecycle.ViewModelProvider
 import kotlinx.android.synthetic.main.fragment_games_list.*
+import kotlinx.coroutines.Dispatchers
+import org.koin.android.ext.android.get
 
-class GamesListFragment: Fragment() {
+class GamesListFragment : Fragment() {
+
+    private val model by viewModels<GamesViewModel> {
+        object : ViewModelProvider.Factory {
+            override fun <T : ViewModel?> create(modelClass: Class<T>): T {
+                @Suppress("UNCHECKED_CAST")
+                return GamesViewModel(get(), Dispatchers.Main.immediate) as T
+            }
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,5 +35,8 @@ class GamesListFragment: Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         category_recycler_view.setHasFixedSize(true)
+        model.gamesCategories.observe(viewLifecycleOwner) {
+            category_recycler_view.adapter = GamesCategoriesAdapter(it)
+        }
     }
 }
