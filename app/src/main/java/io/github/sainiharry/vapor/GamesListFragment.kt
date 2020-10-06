@@ -50,7 +50,7 @@ class GamesListFragment : Fragment() {
             category_recycler_view.adapter = GamesCategoriesAdapter(it)
         }
 
-        model.errorLiveData.observe(viewLifecycleOwner, EventObserver { _ ->
+        model.error.observe(viewLifecycleOwner, EventObserver { _ ->
             val snackbar = Snackbar.make(view, R.string.generic_error, Snackbar.LENGTH_INDEFINITE)
             snackbar.setAction(R.string.dismiss) {
                 snackbar.dismiss()

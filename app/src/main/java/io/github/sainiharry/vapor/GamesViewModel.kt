@@ -19,8 +19,8 @@ class GamesViewModel(
     val gamesCategories: LiveData<List<GameCategory>>
         get() = _gamesCategories
 
-    private val _errorLiveData = MutableLiveData<Event<Any>>()
-    val errorLiveData: LiveData<Event<Any>>
+    private val _errorLiveData = MutableLiveData<Event<Any?>>()
+    val error: LiveData<Event<Any?>>
         get() = _errorLiveData
 
     private val _loading = MutableLiveData<Boolean>()
@@ -33,7 +33,7 @@ class GamesViewModel(
             _gamesCategories.value = repository.getGamesCategories()
         } catch (e: Exception) {
             e.printStackTrace()
-            _errorLiveData.value = Event(Any())
+            _errorLiveData.value = Event(null)
         }
         _loading.value = false
     }
