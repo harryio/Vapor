@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Vapor</string>
+
+    <string name="generic_error">Oops! Something went wrong</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="retry">Retry</string>
 </resources>

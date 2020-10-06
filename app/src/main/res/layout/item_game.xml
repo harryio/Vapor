@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginEnd="@dimen/size_m">
+
+    <ImageView
+        android:id="@+id/game_poster"
+        android:layout_width="0dp"
+        android:layout_height="@dimen/game_poster_height"
+        android:importantForAccessibility="no"
+        app:layout_constraintDimensionRatio="3:4.4"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/game_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/size_s"
+        android:ellipsize="end"
+        android:gravity="center"
+        android:maxLines="1"
+        android:paddingStart="@dimen/size_xs"
+        android:paddingEnd="@dimen/size_xs"
+        android:textColor="@color/black"
+        android:textSize="@dimen/game_title_text_size"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/game_poster"
+        tools:text="Dice with Ellen" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

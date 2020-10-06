@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 30
@@ -35,8 +36,15 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation project(':common')
+    implementation project(':repository:games')
+
     implementation libraries.kotlinStdLib
     implementation androidLibraries
+
+    implementation libraries.glide
+
+    implementation diLibraries.koinAndroid
 
     testImplementation testLibraries
     androidTestImplementation androidTestLibraries
