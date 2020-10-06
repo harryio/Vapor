@@ -1,4 +1,4 @@
-package io.github.sainiharry.vapor
+package io.github.sainiharry.vapor.gamelist
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -10,7 +10,7 @@ import io.github.sainiharry.vapor.utils.Event
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
 
-class GamesViewModel(
+internal class GamesViewModel(
     private val repository: GamesRepository,
     private val coroutineDispatcher: CoroutineDispatcher
 ) : ViewModel() {

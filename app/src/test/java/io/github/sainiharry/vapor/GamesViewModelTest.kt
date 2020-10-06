@@ -4,6 +4,7 @@ import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.Observer
 import io.github.sainiharry.vapor.common.Game
 import io.github.sainiharry.vapor.common.GameCategory
+import io.github.sainiharry.vapor.gamelist.GamesViewModel
 import io.github.sainiharry.vapor.repository.games.GamesRepository
 import io.github.sainiharry.vapor.utils.Event
 import kotlinx.coroutines.ExperimentalCoroutinesApi
