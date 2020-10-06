@@ -11,6 +11,10 @@ import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withC
 import io.github.sainiharry.vapor.R
 import io.github.sainiharry.vapor.common.Game
 
+/**
+ * A [RecyclerView.Adapter] that handles displaying game data in a game list
+ * @param games a list of [Game] that should be displayed in a list
+ */
 internal class GamesAdapter(private val games: List<Game>) :
     RecyclerView.Adapter<GamesViewHolder>() {
 
@@ -23,6 +27,9 @@ internal class GamesAdapter(private val games: List<Game>) :
     override fun getItemCount(): Int = games.size
 }
 
+/**
+ * A [RecyclerView.ViewHolder] that sets a single game data to a single cell in the games list
+ */
 internal class GamesViewHolder(viewGroup: ViewGroup) : RecyclerView.ViewHolder(
     LayoutInflater.from(viewGroup.context).inflate(R.layout.item_game, viewGroup, false)
 ) {

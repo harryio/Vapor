@@ -10,6 +10,12 @@ import io.github.sainiharry.vapor.utils.Event
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
 
+/**
+ * A [ViewModel] that handles loading game categories and games for those categories
+ * @param repository A repository that provides game categories and games
+ * @param coroutineDispatcher A [CoroutineDispatcher] where the categories and game data will be
+ * fetched
+ */
 internal class GamesViewModel(
     private val repository: GamesRepository,
     private val coroutineDispatcher: CoroutineDispatcher

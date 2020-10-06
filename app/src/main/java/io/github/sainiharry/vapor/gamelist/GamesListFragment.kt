@@ -15,6 +15,9 @@ import kotlinx.android.synthetic.main.fragment_games_list.*
 import kotlinx.coroutines.Dispatchers
 import org.koin.android.ext.android.get
 
+/**
+ * A fragment that displays a list of game categories and games
+ */
 class GamesListFragment : Fragment() {
 
     private val model by viewModels<GamesViewModel> {

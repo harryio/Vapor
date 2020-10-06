@@ -9,6 +9,7 @@ class VaporApp : Application() {
     override fun onCreate() {
         super.onCreate()
 
+        //Setup Koin
         startKoin {
             modules(gamesRepositoryModule)
         }
