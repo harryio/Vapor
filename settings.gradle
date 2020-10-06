@@ -1,2 +1,4 @@
+include ':common'
+include ':repository:games'
 include ':app'
 rootProject.name = "Vapor"
