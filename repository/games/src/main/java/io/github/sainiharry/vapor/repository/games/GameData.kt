@@ -1,8 +1,20 @@
 package io.github.sainiharry.vapor.repository.games
 
+import com.squareup.moshi.JsonClass
+import io.github.sainiharry.vapor.common.Game
+import io.github.sainiharry.vapor.common.GameCategory
+
+@JsonClass(generateAdapter = true)
 internal data class GameCategoryModel(val listTitle: String, val games: List<GameModel>)
 
+@JsonClass(generateAdapter = true)
 internal data class GameModel(val title: String, val img: String)
+
+internal fun GameCategoryModel.toGameCategory() = GameCategory(listTitle, games.toGameList())
+
+internal fun List<GameModel>.toGameList() = map { it.toGame() }
+
+internal fun GameModel.toGame() = Game(title, img)
 
 internal const val GAME_JSON_DATA = "[\n" +
         "  {\n" +

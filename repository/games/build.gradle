@@ -1,6 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 30
@@ -26,8 +27,14 @@ android {
 
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation project(':common')
 
     implementation libraries.kotlinStdLib
+    implementation networkLibraries.moshi
+
+    implementation coroutines.core
+
+    kapt compilers.moshi
 
     testImplementation testLibraries
     androidTestImplementation androidTestLibraries
