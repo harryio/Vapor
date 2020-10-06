@@ -6,6 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions.withCrossFade
 import io.github.sainiharry.vapor.common.Game
 
@@ -29,9 +30,12 @@ class GamesViewHolder(viewGroup: ViewGroup) : RecyclerView.ViewHolder(
     private val posterImageView = itemView.findViewById<ImageView>(R.id.game_poster)
     private val titleTextView = itemView.findViewById<TextView>(R.id.game_title)
 
+    private val cornerRadius = itemView.context.resources.getDimensionPixelSize(R.dimen.size_m)
+
     fun bind(game: Game) {
         Glide.with(itemView.context)
             .load(game.img)
+            .transform(RoundedCorners(cornerRadius))
             .transition(withCrossFade())
             .into(posterImageView)
 
