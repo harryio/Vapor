@@ -4,4 +4,7 @@
     <string name="generic_error">Oops! Something went wrong</string>
     <string name="dismiss">Dismiss</string>
     <string name="retry">Retry</string>
+    <string name="light">Light</string>
+    <string name="dark">Dark</string>
+    <string name="auto">Auto</string>
 </resources>

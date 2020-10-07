@@ -2,7 +2,7 @@
 <androidx.fragment.app.FragmentContainerView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container_view"
-    android:name="io.github.sainiharry.vapor.GamesListFragment"
+    android:name="io.github.sainiharry.vapor.gamelist.GamesListFragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity" />
