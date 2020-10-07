@@ -14,7 +14,7 @@ internal interface GameDataSource {
 /**
  * An internal and default implementation of [GameDataSource]
  */
-internal class GameDataSourceImpl : GameDataSource {
+internal class GamesDataSourceImpl : GameDataSource {
 
     override fun getGamesCategories(): String = GAME_JSON_DATA
 }
