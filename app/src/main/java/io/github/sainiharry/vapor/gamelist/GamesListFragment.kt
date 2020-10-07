@@ -10,10 +10,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
 import io.github.sainiharry.vapor.R
+import io.github.sainiharry.vapor.repository.games.GamesRepository
 import io.github.sainiharry.vapor.utils.EventObserver
 import kotlinx.android.synthetic.main.fragment_games_list.*
 import kotlinx.coroutines.Dispatchers
-import org.koin.android.ext.android.get
 
 /**
  * A fragment that displays a list of game categories and games
@@ -24,7 +24,10 @@ class GamesListFragment : Fragment() {
         object : ViewModelProvider.Factory {
             override fun <T : ViewModel?> create(modelClass: Class<T>): T {
                 @Suppress("UNCHECKED_CAST")
-                return GamesViewModel(get(), Dispatchers.Main.immediate) as T
+                return GamesViewModel(
+                    GamesRepository.getInstance(),
+                    Dispatchers.Main.immediate
+                ) as T
             }
         }
     }

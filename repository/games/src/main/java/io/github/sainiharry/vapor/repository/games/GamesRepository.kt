@@ -7,16 +7,6 @@ import io.github.sainiharry.vapor.common.GameCategory
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import org.koin.dsl.module
-
-/**
- * Koin module for providing single instance of GamesRepository
- */
-val gamesRepositoryModule = module {
-    single<GamesRepository> {
-        GamesRepositoryImpl(GameDataSourceImpl(), Dispatchers.IO)
-    }
-}
 
 /**
  * Repository for accessing games categories and the games for those categories
@@ -27,6 +17,16 @@ interface GamesRepository {
      * Get list of games categories
      */
     suspend fun getGamesCategories(): List<GameCategory>
+
+    companion object {
+
+        private var gamesRepository: GamesRepository? = null
+
+        fun getInstance(): GamesRepository {
+            return gamesRepository ?: GamesRepositoryImpl(GamesDataSourceImpl(), Dispatchers.IO)
+                .also { gamesRepository = it }
+        }
+    }
 }
 
 /**

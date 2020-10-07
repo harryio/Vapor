@@ -44,8 +44,6 @@ dependencies {
 
     implementation libraries.glide
 
-    implementation diLibraries.koinAndroid
-
     testImplementation testLibraries
     androidTestImplementation androidTestLibraries
 }
